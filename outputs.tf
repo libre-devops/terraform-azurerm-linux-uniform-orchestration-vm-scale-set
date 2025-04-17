@@ -14,7 +14,7 @@ output "ss_identity" {
 
 output "ss_name" {
   value = {
-    for key, value in azurerm_linux_virtual_machine_scale_set.linux_vm_scale_set : key => value.name
+    for key, value in element(azurerm_linux_virtual_machine_scale_set.linux_vm_scale_set[*], 0) : key => value.name
   }
   description = "The name of the scale set"
 }
