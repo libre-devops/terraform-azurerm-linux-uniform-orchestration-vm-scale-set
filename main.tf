@@ -353,7 +353,7 @@ module "os_calculator" {
 }
 
 module "os_calculator_with_plan" {
-  source       = "libre-devops/linux-os-sku-calculator-with-plan/azurerm"
+  source       = "libre-devops/linux-os-sku-with-plan-calculator/azurerm"
   for_each     = { for vm in var.scale_sets : vm.name => vm if try(vm.use_simple_image_with_plan, null) == true }
   vm_os_simple = each.value.vm_os_simple
 }
